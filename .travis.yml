@@ -1,0 +1,14 @@
+language: python
+
+install:
+  - "pip install coveralls flake8"
+
+before_script:
+  - "rm $VIRTUAL_ENV/lib/python$TRAVIS_PYTHON_VERSION/no-global-site-packages.txt"
+
+script:
+  - "flake8 $(find . -iname '*.py')"
+  - "nosetests --with-coverage --cover-package=yodl"
+
+after_success:
+  - "coveralls"

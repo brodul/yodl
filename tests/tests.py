@@ -17,6 +17,7 @@ INTERNET = (is_internet_on(), "Can not access Youtube.com")
 
 
 class ViewTests(unittest.TestCase):
+
     def setUp(self):
         self.config = testing.setUp()
 

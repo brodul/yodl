@@ -2,9 +2,6 @@
 See this:
 https://hynek.me/articles/using-celery-with-pyramid/
 """
-import os
-
-from pyramid.paster import bootstrap
 from celery import Celery
 
 
