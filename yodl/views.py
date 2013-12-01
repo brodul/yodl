@@ -33,7 +33,10 @@ def main_view(request):
         url = request.params["url"].strip()
         # check if id and file all ready exists
         if url_validate(url):
-            transcode.delay(url)
+            transcode.delay(
+                url,
+                media_path=request.registry.settings['yodl.media_path']
+            )
             request.session["error"] = False
 
         else:

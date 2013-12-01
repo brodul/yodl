@@ -20,7 +20,7 @@ Task_DBSession.configure(bind=engine)
 
 
 @celery.task
-def transcode(url):
+def transcode(url, media_path):
     """docstring for dl_transcode"""
     id_ = get_id(url)
 
@@ -28,7 +28,7 @@ def transcode(url):
         return
     p = subprocess.Popen(
         ["youtube-dl", url, '-x', '--audio-format', 'vorbis', '--id'],
-        cwd='yodl/media/'
+        cwd=media_path
     )
     p.wait()
     title = get_title(url)

@@ -87,8 +87,8 @@
         <td>{{ song.id }}</td>
         <td>{{ song.songname | safe}}</td>
         <td>
-        <a href="{{ request.static_url('yodl:media/') + song.youtube_id }}.ogg">
-        {{ request.static_url('yodl:media/') + song.youtube_id }}.ogg
+        <a href="{{ request.static_url(request.registry.settings['yodl.media_path']) + song.youtube_id }}.ogg">
+        {{ request.static_url(request.registry.settings['yodl.media_path']) + song.youtube_id }}.ogg
         </a>
         </td>
       </tr>
